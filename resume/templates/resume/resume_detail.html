@@ -1,0 +1,26 @@
+{% extends 'resume/base.html' %}
+
+{% block content %}
+
+<h2>Resume Analysis</h2>
+
+<div class="card p-4 mt-3">
+
+    <h4>{{ resume.original_filename }}</h4>
+
+    <h5 class="mt-3">AI Summary</h5>
+    <p>{{ resume.ai_summary }}</p>
+
+    <h5>Skills</h5>
+    <div>
+        {% for skill in resume.skilltag_set.all %}
+            <span class="badge bg-success m-1">{{ skill.skill }}</span>
+        {% endfor %}
+    </div>
+
+    <h5 class="mt-3">Match Score</h5>
+    <p>{{ resume.job_match_score }}%</p>
+
+</div>
+
+{% endblock %}

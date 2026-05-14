@@ -1,0 +1,28 @@
+{% extends 'resume/base.html' %}
+
+{% block content %}
+
+<h2>Analytics</h2>
+
+<canvas id="chart"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+new Chart(document.getElementById("chart"), {
+    type: 'bar',
+    data: {
+        labels: ["Completed", "Pending", "Failed"],
+        datasets: [{
+            label: "Resumes",
+            data: [
+                {{ status_counts.completed }},
+                {{ status_counts.pending }},
+                {{ status_counts.failed }}
+            ]
+        }]
+    }
+});
+</script>
+
+{% endblock %}

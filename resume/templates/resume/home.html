@@ -1,0 +1,28 @@
+{% extends 'resume/base.html' %}
+
+{% block content %}
+
+<div class="text-center mt-5">
+
+    <h1 class="display-4">AI Resume Summarizer 🚀</h1>
+    <p class="lead">Upload resumes and get AI-powered insights</p>
+
+    <div class="mt-4">
+
+        <a href="{% url 'login' %}" class="btn btn-primary m-2">Login</a>
+
+        <a href="{% url 'register' %}" class="btn btn-success m-2">Register</a>
+
+        <a href="{% url 'dashboard' %}" class="btn btn-warning m-2">Dashboard</a>
+
+        <a href="{% url 'upload_resume' %}" class="btn btn-info m-2">Upload Resume</a>
+
+        <a href="{% url 'resume_list' %}" class="btn btn-secondary m-2">View Resumes</a>
+
+        <a href="{% url 'analytics' %}" class="btn btn-dark m-2">Analytics</a>
+
+    </div>
+
+</div>
+
+{% endblock %}
