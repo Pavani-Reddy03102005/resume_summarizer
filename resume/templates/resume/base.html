@@ -3,7 +3,6 @@
 <head>
     <title>Resume AI</title>
 
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -11,76 +10,30 @@
             background-color: #0f172a;
             color: white;
         }
-        .card {
-            background-color: #1e293b;
-            border: none;
-        }
-        a {
-            text-decoration: none;
-        }
     </style>
 </head>
 
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+<!-- SIMPLE NAVBAR -->
+<nav class="navbar navbar-dark bg-dark px-4">
     <a class="navbar-brand" href="{% url 'home' %}">ResumeAI</a>
 
-    <div class="collapse navbar-collapse">
-        <ul class="navbar-nav ms-auto">
-
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'home' %}">Home</a>
-            </li>
-
-            {% if user.is_authenticated %}
-
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'upload_resume' %}">Upload</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'resume_list' %}">Resumes</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'analytics' %}">Analytics</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link text-danger" href="{% url 'logout' %}">Logout</a>
-            </li>
-
-            {% else %}
-
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'login' %}">Login</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'register' %}">Register</a>
-            </li>
-
-            {% endif %}
-
-        </ul>
+    <div>
+        <a href="{% url 'home' %}" class="text-white me-3">Home</a>
+        <a href="{% url 'dashboard' %}" class="text-white me-3">Dashboard</a>
+        <a href="{% url 'upload_resume' %}" class="text-white me-3">Upload</a>
+        <a href="{% url 'resume_list' %}" class="text-white me-3">Resumes</a>
+        <a href="{% url 'analytics' %}" class="text-white me-3">Analytics</a>
+        <a href="{% url 'login' %}" class="text-white me-3">Login</a>
     </div>
 </nav>
 
-<!-- Content -->
 <div class="container mt-4">
 
-    <!-- Messages -->
     {% if messages %}
         {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}">
-                {{ message }}
-            </div>
+            <div class="alert alert-info">{{ message }}</div>
         {% endfor %}
     {% endif %}
 
@@ -88,11 +41,6 @@
     {% endblock %}
 
 </div>
-
-<!-- Footer -->
-<footer class="text-center mt-5 mb-3">
-    <p>© 2026 AI Resume Summarizer | Final Year Project</p>
-</footer>
 
 </body>
 </html>
